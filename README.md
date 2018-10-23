@@ -53,10 +53,21 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 
 
+## Criar banco local (rodar esse somente uma vez)
+python3 models.py
+
+
 ## Rodar contador de pessoas 
 python3 start.py
 
 
-## Criar banco local
-python3 models.py
+## Para ver o conteudo do banco 
+sudo -u postgres psql
+\c peoplecounter;
+# exemplo de select
+select c.camera_id, c.nome as camera, l.nome as local, l.endereco, cl.nome as cliente 
+from cameras c 
+left join locais l on c.local_id = l.local_id 
+left join clientes cl ON l.cliente_id = cl.cliente_id; 
+
 
