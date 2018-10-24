@@ -18,7 +18,7 @@ session = Session()
 
 start_time = datetime.now()
 
-cap = cv2.VideoCapture('peopleCounter.avi')
+cap = cv2.VideoCapture('example.mp4')
 
 w = cap.get(3)
 h = cap.get(4)
@@ -45,7 +45,7 @@ while(cap.isOpened()):
 
     k = cv2.waitKey(30)
     if k == 27:
-            break
+        break
 
     fgmask = fgbg.apply(frame)
     people = []
@@ -122,15 +122,15 @@ while(cap.isOpened()):
                 camera_id=1,
                 qtd_pessoas_in=count,
                 timestamp=datetime.now()
-                )
             )
+        )
         try:
             session.commit()
         except Exception:
             session.rollback()
-        
+
         start_time = datetime.now()
-    
+
 
 cap.release()
 cv2.destroyAllWindows()
