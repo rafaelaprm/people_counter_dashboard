@@ -88,7 +88,9 @@ class Contagem(Base):
 
     timestamp = Column(DateTime)
 
-    qtd_pessoas = Column(Integer)
+    qtd_pessoas_in = Column(Integer)
+
+    qtd_pessoas_out = Column(Integer)
    
 
 class Execucao:
@@ -104,7 +106,7 @@ class Execucao:
         session.add(
             Cliente(
                 cliente_id=1, 
-                nome='DB'
+                nome='DB SUPERMERCADOS'
             )
         )
         try:
