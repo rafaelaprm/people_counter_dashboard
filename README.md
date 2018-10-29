@@ -1,11 +1,11 @@
 ## Configuracoes de banco
 
-sudo apt-get update
-sudo apt-get install postgresql postgresql-contrib
+    sudo apt-get update
+    sudo apt-get install postgresql postgresql-contrib
 
 # configurar o pg_hba.conf
-cd /etc/postgresql/10/main 
-sudo gedit pg_hba.conf
+    cd /etc/postgresql/10/main 
+    sudo gedit pg_hba.conf
 # nas ultimas linhas, troque pelas seguintes linhas
 
     # DO NOT DISABLE!
@@ -33,41 +33,41 @@ sudo gedit pg_hba.conf
 
 
 # criar o banco local 
-sudo service postgresql restart
-sudo -u postgres psql       # abre o prompt do postgres 
-CREATE DATABASE peoplecounter;
+    sudo service postgresql restart
+    sudo -u postgres psql       # abre o prompt do postgres 
+    CREATE DATABASE peoplecounter;
 
 
 
 ## Criar ambiente virtual (dentro da pasta do projeto peoplecounter)
-pip install virtualenv
-virtualenv -p python3 venv
+    pip install virtualenv
+    virtualenv -p python3 venv
 
 
 
 ## Ativar ambiente virtual
-source venv/bin/activate
+    source venv/bin/activate
 
 
 ## Instalar dependencias
-pip3 install -r requirements.txt
+    pip3 install -r requirements.txt
 
 
 ## Criar banco local (rodar esse somente uma vez)
-python3 models.py
+    python3 models.py
 
 
 ## Rodar contador de pessoas 
-python3 start.py
+    python3 start.py
 
 
 ## Para ver o conteudo do banco 
-sudo -u postgres psql
-\c peoplecounter;
+    sudo -u postgres psql
+    \c peoplecounter;
 # exemplo de select
-select c.camera_id, c.nome as camera, l.nome as local, l.endereco, cl.nome as cliente 
-from cameras c 
-left join locais l on c.local_id = l.local_id 
-left join clientes cl ON l.cliente_id = cl.cliente_id; 
+    select c.camera_id, c.nome as camera, l.nome as local, l.endereco, cl.nome as cliente 
+    from cameras c 
+    left join locais l on c.local_id = l.local_id 
+    left join clientes cl ON l.cliente_id = cl.cliente_id; 
 
 
