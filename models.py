@@ -19,7 +19,7 @@ from sqlalchemy import (
     Table
 )
 
-from sqlalchemy.orm import relationship, backref, sessionmaker
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy_repr import PrettyRepresentableBase
 
 DB_CONN_STRING = 'postgres://postgres:@localhost:5432/peoplecounter'
