@@ -1,3 +1,16 @@
+# Rodando a aplicacao com Docker (necessário ter instalado o docker e o docker-compose)
+    docker-compose build
+    docker-compose up -d
+    python models.py  
+    python start.py
+    gunicorn -b 0.0.0.0:9000 app:server --timeout 300
+
+##No navegador:  
+    localhost:9000
+
+
+# Rodando a aplicacao sem docker
+
 ## Configuracoes de banco
 
     sudo apt-get update

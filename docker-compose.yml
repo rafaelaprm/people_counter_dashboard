@@ -1,0 +1,24 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:  
+  db_peoplecounter:
+    image: postgres:10
+    volumes:
+    - ./postgres-data/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: peoplecounter
+      POSTGRES_USER: peoplecounter
+      POSTGRES_DB: peoplecounter
+    ports:
+      - 5432:5432
+
+  dashboard:
+    build: .
+    command: gunicorn -b 0.0.0.0:8000 app:server --timeout 300 
+    depends_on:
+    - db_peoplecounter
+    volumes:
+    - .:/app
+    ports:
+    - "8000:8000"

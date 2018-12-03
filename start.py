@@ -10,7 +10,7 @@ from sqlalchemy.orm import sessionmaker
 # Tempo de contagem em segundos para guardar no banco
 COUNTER_TIME = timedelta(seconds=3)
 
-DB_CONN_STRING = 'postgres://postgres:@localhost:5432/peoplecounter'
+DB_CONN_STRING = 'postgres://peoplecounter:peoplecounter@localhost:5432/peoplecounter'
 
 engine = create_engine(DB_CONN_STRING, echo=True)
 Session = sessionmaker(bind=engine)

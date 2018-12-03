@@ -22,7 +22,7 @@ from sqlalchemy import (
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy_repr import PrettyRepresentableBase
 
-DB_CONN_STRING = 'postgres://postgres:@localhost:5432/peoplecounter'
+DB_CONN_STRING = 'postgres://peoplecounter:peoplecounter@localhost:5432/peoplecounter'
 
 Base = declarative_base(cls=PrettyRepresentableBase)
 
